@@ -1,14 +1,23 @@
-import React from "react";
-// import ListingCard from "./ListingCard";
+import React, {useState, useEffect} from 'react'
+import App from './App';
+import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
-  return (
-    <main>
+function ListingsContainer({list, removeItem}) {
+
+  function removeItem(id) {    
+    fetch(`http://localhost:6001/listings/${id}`, {method: 'DELETE'})ls
+        .then(() => removeItem(id))
+  }
+
+    return (
+      <main>
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {
+          list.map(item => <ListingCard potato={item} removeItem={removeItem}/>)
+        }
       </ul>
     </main>
   );
 }
 
-export default ListingsContainer;
+export default ListingsContainer
