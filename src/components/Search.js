@@ -43,6 +43,8 @@ function Search() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("submitted");
+    // call a function here that delivers e text content to app component
+    // then the search should be passed into the listingsContainer, after being filtered in app
   }
 
   return (

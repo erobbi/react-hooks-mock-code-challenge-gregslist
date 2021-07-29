@@ -5,8 +5,10 @@ import ListingCard from "./ListingCard";
 function ListingsContainer({list, removeItem}) {
 
   function removeItem(id) {    
-    fetch(`http://localhost:6001/listings/${id}`, {method: 'DELETE'})ls
-        .then(() => removeItem(id))
+    useEffect(()=>{
+      fetch(`http://localhost:6001/listings/${id}`, {method: 'DELETE'})
+          .then(() => removeItem(id))
+    },[])
   }
 
     return (

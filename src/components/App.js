@@ -4,21 +4,23 @@ import ListingsContainer from "./ListingsContainer";
 
 function App() {
   const [itemsListed, setItemsListed] = useState([])
+  const [removeItemState, setRemoveItem] = useState('')
+  // usestate for search string
 
   // Simple GET request using fetch
   useEffect(() => {fetch('http://localhost:6001/listings')
-  .then(res => res.json())
-  .then(json => setItemsListed(json))
+    .then(res => res.json())
+    .then(json => setItemsListed(json))
   },[])
 
-  function removeItem(id) {
+  const removeItemArray = function removeItem(id) {
     console.log(`remove item ${id}`)
   }
 
   return (
     <div className="app">
       <Header />
-      <ListingsContainer list={itemsListed} removeItem={removeItem}/>
+      <ListingsContainer list={itemsListed} removeItem={removeItem} />
     </div>
   );
 }
